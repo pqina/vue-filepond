@@ -1,0 +1,24 @@
+{
+    "name": "vue-filepond",
+    "version": "1.0.0",
+    "description": " A handy FilePond adapter component for Vue",
+    "homepage": "https://pqina.nl/filepond",
+    "main": "index.vue",
+    "dependencies": {},
+    "keywords": [
+        "vue",
+        "filepond",
+        "file",
+        "upload",
+        "drag",
+        "drop",
+        "browse",
+        "image",
+        "preview"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "PQINA",
+        "url": "https://pqina.nl"
+    }
+}
