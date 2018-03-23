@@ -1,7 +1,7 @@
 {
     "name": "vue-filepond",
     "version": "1.0.1",
-    "description": " A handy FilePond adapter component for Vue",
+    "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "main": "index.js",
     "dependencies": {
