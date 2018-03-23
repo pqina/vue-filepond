@@ -4,7 +4,9 @@
     "description": " A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "main": "index.vue",
-    "dependencies": {},
+    "dependencies": {
+        "filepond": "^1.2.6"
+    },
     "keywords": [
         "vue",
         "filepond",
