@@ -1,21 +1,9 @@
 /*
- * Vue FilePond 1.0.0
+ * Vue FilePond 1.0.1
  * Licensed under MIT, https://opensource.org/licenses/MIT
  * Please visit https://pqina.nl/filepond for details.
  */
-<template>
-<div class="filepond--wrapper">
-    <input type="file" 
-        :name="name"
-        :id="id"
-        :class="className"
-        :required="required"
-        :multiple="allowMultiple"
-        :accept="acceptedFileTypes"
-        :capture="captureMethod"/>
-</div>
-</template>
-<script>
+import Vue from 'vue';
 import {
     OptionTypes,
     create,
@@ -77,7 +65,7 @@ const update = () => {
         props[prop] = [String, getNativeConstructorFromType(OptionTypes[prop])];
 
         // setup watcher
-        watch[prop] = function(value) {
+        watch[prop] = function (value) {
             this._pond[prop] = value;
         };
     }
@@ -96,13 +84,37 @@ export const registerPlugin = (...plugins) => {
 };
 
 // Create Component
-export default {
+export default Vue.component('FilePond', {
     name: 'FilePond',
+    render: function (h) {
+        return h('div',
+            {
+                'class': {
+                    'filepond--wrapper': true
+                }
+            },
+            [
+                h('input', {
+                    attrs: {
+                        id: this.id,
+                        name: this.name,
+                        type: 'file',
+                        'class': this.className,
+                        required: this.required,
+                        multiple: this.allowMultiple,
+                        accept: this.acceptedFileTypes,
+                        capture: this.captureMethod
+                    }
+                })
+            ]
+        );
+    },
+
     props,
     watch,
 
     // Will setup FilePond instance when mounted
-    mounted: function() {
+    mounted: function () {
         // exit here if not supported
         if (!isSupported) {
             return;
@@ -134,7 +146,7 @@ export default {
     },
 
     // Will clean up FilePond instance when unmounted
-    beforeDestroy: function() {
+    beforeDestroy: function () {
         // exit when no pond defined
         if (!this._pond) {
             return;
@@ -142,5 +154,4 @@ export default {
 
         this._pond.destroy();
     }
-};
-</script>
+});
