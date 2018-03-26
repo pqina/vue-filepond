@@ -23,7 +23,8 @@ Usage:
     <FilePond
         name="test"
         labelIdle="Drop files here..."
-        allow-multiple="true"
+        allowMultiple="true"
+        acceptedFileTypes="image/jpeg, image/png"
         v-bind:files="myFiles"
         v-on:init="handleFilePondInit"/>
     
@@ -34,7 +35,7 @@ Usage:
 // Import FilePond
 import FilePond, { registerPlugin } from 'vue-filepond';
 
-// Register a plugin
+// Register file type validation plugin
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 registerPlugin(FilePondPluginFileValidateType);
 
