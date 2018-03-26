@@ -1,5 +1,5 @@
 /*
- * Vue FilePond 1.0.1
+ * Vue FilePond 1.0.2
  * Licensed under MIT, https://opensource.org/licenses/MIT
  * Please visit https://pqina.nl/filepond for details.
  */
@@ -78,7 +78,6 @@ update();
 export const registerPlugin = (...plugins) => {
     // register plugins in FilePond
     register(...plugins);
-
     // update props
     update();
 };
@@ -131,10 +130,13 @@ export default Vue.component('FilePond', {
             return obj;
         }, {});
 
+        // Scoop up attributes that might not have been caught by Vue ( because the props object is extended dynamically )
+        const attrs = Object.assign({}, this.$attrs);
+
         // Create our pond
         this._pond = create(
             this._element,
-            Object.assign(options, this.$options.propsData)
+            Object.assign(options, attrs, this.$options.propsData)
         );
 
         // Copy instance method references to component instance
