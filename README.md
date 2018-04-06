@@ -22,6 +22,7 @@ Usage:
     
     <FilePond
         name="test"
+        ref="pond"
         labelIdle="Drop files here..."
         allowMultiple="true"
         acceptedFileTypes="image/jpeg, image/png"
@@ -50,6 +51,8 @@ export default {
     methods: {
         handleFilePondInit: function() {
             console.log('FilePond has initialized');
+            
+            // FilePond instance methods are available on `this.$refs.pond`
         }
     },
     components: {
