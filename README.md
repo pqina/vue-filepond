@@ -32,8 +32,11 @@ Usage:
 </template>
 
 <script>
-// Import FilePond
+// Import Vue FilePond
 import FilePond, { registerPlugin } from 'vue-filepond';
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css';
 
 // Register file type validation plugin
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';

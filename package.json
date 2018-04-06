@@ -1,14 +1,15 @@
 {
     "name": "vue-filepond",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
-    "main": "index.js",
-    "dependencies": {
-        "filepond": "^1.2.6"
-    },
+    "license": "MIT",
+    "main": "dist/vue-filepond.js",
+    "browser": "dist/vue-filepond.js",
+    "module": "dist/vue-filepond.esm.js",
     "keywords": [
         "vue",
+        "vuejs",
         "filepond",
         "file",
         "upload",
@@ -18,9 +19,34 @@
         "image",
         "preview"
     ],
-    "license": "MIT",
     "author": {
         "name": "PQINA",
         "url": "https://pqina.nl"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pqina/vue-filepond.git"
+    },
+    "scripts": {
+        "build": "mkdirp dist && npm run build:browser && npm run build:module",
+        "build:browser": "babel lib | bannerjs -m > dist/vue-filepond.js",
+        "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
+        "build:watch": "nodemon --watch lib -x \"npm run build\"",
+        "prepare": "npm run build"
+    },
+    "dependencies": {
+        "filepond": "^1.2.6"
+    },
+    "peerDependencies": {
+        "vue": "^2.5.13"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "bannerjs": "^1.0.5",
+        "minicat": "^1.0.0",
+        "mkdirp": "^0.5.1",
+        "nodemon": "^1.17.3"
     }
 }
