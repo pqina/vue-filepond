@@ -26,6 +26,7 @@ Usage:
         labelIdle="Drop files here..."
         allowMultiple="true"
         acceptedFileTypes="image/jpeg, image/png"
+        server="/api"
         v-bind:files="myFiles"
         v-on:init="handleFilePondInit"/>
     
