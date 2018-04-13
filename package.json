@@ -8,6 +8,7 @@
     "main": "dist/vue-filepond.js",
     "browser": "dist/vue-filepond.js",
     "module": "dist/vue-filepond.esm.js",
+    "unpkg": "dist/vue-filepond.min.js",
     "keywords": [
         "vue",
         "vuejs",
@@ -27,6 +28,7 @@
     "scripts": {
         "build": "mkdirp dist && npm run build:browser && npm run build:module",
         "build:browser": "babel lib | bannerjs -m > dist/vue-filepond.js",
+        "postbuild:browser": "uglifyjs dist/vue-filepond.js --compress --comments '/^!/' --output dist/vue-filepond.min.js",
         "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
         "prepare": "npm run build"
@@ -44,6 +46,7 @@
         "bannerjs": "^1.0.5",
         "minicat": "^1.0.0",
         "mkdirp": "^0.5.1",
-        "nodemon": "^1.17.3"
+        "nodemon": "^1.17.3",
+        "uglify-js": "^3.3.20"
     }
 }

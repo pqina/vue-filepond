@@ -14,21 +14,28 @@ Installation:
 npm install vue-filepond --save
 ```
 
+For browser:
+
+```html
+<script src="https://unpkg.com/vue-filepond"></script>
+```
+
 Usage:
 
 ```vue
 <template>
   <div id="app">
-    
+
     <FilePond
         name="test"
         ref="pond"
         labelIdle="Drop files here..."
         allowMultiple="true"
         acceptedFileTypes="image/jpeg, image/png"
+        server="/api"
         v-bind:files="myFiles"
         v-on:init="handleFilePondInit"/>
-    
+
   </div>
 </template>
 
@@ -51,7 +58,7 @@ export default {
     methods: {
         handleFilePondInit: function() {
             console.log('FilePond has initialized');
-            
+
             // FilePond instance methods are available on `this.$refs.pond`
         }
     },
