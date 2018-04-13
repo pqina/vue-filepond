@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v1.0.3
+ * vue-filepond v1.0.4
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
