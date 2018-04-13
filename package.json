@@ -4,6 +4,7 @@
     "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "license": "MIT",
+    "repository": "pqina/vue-filepond",
     "main": "dist/vue-filepond.js",
     "browser": "dist/vue-filepond.js",
     "module": "dist/vue-filepond.esm.js",
@@ -22,10 +23,6 @@
     "author": {
         "name": "PQINA",
         "url": "https://pqina.nl"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/pqina/vue-filepond.git"
     },
     "scripts": {
         "build": "mkdirp dist && npm run build:browser && npm run build:module",
