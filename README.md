@@ -29,9 +29,9 @@ Usage:
     <FilePond
         name="test"
         ref="pond"
-        labelIdle="Drop files here..."
-        allowMultiple="true"
-        acceptedFileTypes="image/jpeg, image/png"
+        label-idle="Drop files here..."
+        allow-multiple="true"
+        accepted-file-types="image/jpeg, image/png"
         server="/api"
         v-bind:files="myFiles"
         v-on:init="handleFilePondInit"/>
@@ -53,7 +53,7 @@ registerPlugin(FilePondPluginFileValidateType);
 export default {
     name: 'app',
     data: function() {
-        return { myFiles: ['index.html'] };
+        return { myFiles: ['cat.jpeg'] };
     },
     methods: {
         handleFilePondInit: function() {
