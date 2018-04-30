@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v1.0.4
+ * vue-filepond v2.0.0
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
@@ -13,9 +13,8 @@ import {
     OptionTypes,
     create,
     supported,
-    registerPlugin as register
+    registerPlugin
 } from 'filepond';
-
 
 // Methods not made available to the component
 const filteredComponentMethods = [
@@ -32,7 +31,7 @@ const filteredComponentMethods = [
     'destroy'
 ];
 
-// Do this once
+// Test if is supported on this client
 const isSupported = supported();
 
 // Setup initial prop types and update when plugins are added
@@ -46,18 +45,21 @@ const getNativeConstructorFromType = type =>
         serverapi: Object
     }[type]);
 
-// All the props
-const props = {
-    id: String
-};
+// Activated props
+const props = {};
 
-// All the events that need to be mapped to emitters
+// Events that need to be mapped to emitters
 const events = [];
 
 // Props to watch
 const watch = {};
 
-const update = () => {
+export default (...plugins) => {
+
+    // register plugins in FilePond
+    registerPlugin(...plugins);
+
+    // build events and props array
     events.length = 0;
     for (const prop in OptionTypes) {
         // don't add events to the props array
@@ -66,7 +68,7 @@ const update = () => {
             continue;
         }
 
-        // get property type
+        // get property type ( can be either a String or the type defined within FilePond )
         props[prop] = [String, getNativeConstructorFromType(OptionTypes[prop])];
 
         // setup watcher
@@ -74,92 +76,80 @@ const update = () => {
             this._pond[prop] = value;
         };
     }
-};
 
-// get initial props
-update();
-
-// We need to be able to call the registerPlugin method directly so we can add plugins
-export const registerPlugin = (...plugins) => {
-    // register plugins in FilePond
-    register(...plugins);
-    // update props
-    update();
-};
-
-// Create Component
-export default Vue.component('FilePond', {
-    name: 'FilePond',
-    render: function (h) {
-        return h('div',
-            {
-                'class': {
-                    'filepond--wrapper': true
-                }
-            },
-            [
-                h('input', {
-                    attrs: {
-                        id: this.id,
-                        name: this.name,
-                        type: 'file',
-                        'class': this.className,
-                        required: this.required,
-                        multiple: this.allowMultiple,
-                        accept: this.acceptedFileTypes,
-                        capture: this.captureMethod
+    // create 
+    return Vue.component('FilePond', {
+        name: 'FilePond',
+        props,
+        watch,
+        render (h) {
+            return h('div',
+                {
+                    'class': {
+                        'filepond--wrapper': true
                     }
-                })
-            ]
-        );
-    },
-
-    props,
-    watch,
-
-    // Will setup FilePond instance when mounted
-    mounted: function () {
-        // exit here if not supported
-        if (!isSupported) {
-            return;
+                },
+                [
+                    h('input', {
+                        attrs: {
+                            id: this.id,
+                            name: this.name,
+                            type: 'file',
+                            'class': this.className,
+                            required: this.required,
+                            multiple: this.allowMultiple,
+                            accept: this.acceptedFileTypes,
+                            capture: this.captureMethod
+                        }
+                    })
+                ]
+            );
+        },
+        // Will setup FilePond instance when mounted
+        mounted () {
+            // exit here if not supported
+            if (!isSupported) {
+                return;
+            }
+    
+            // get pond element
+            this._element = this.$el.querySelector('input');
+    
+            // Map FilePond callback methods to Vue $emitters
+            const options = events.reduce((obj, value) => {
+                obj[value] = (...args) => {
+                    this.$emit(value.substr(2), ...args);
+                };
+                return obj;
+            }, {});
+    
+            // Scoop up attributes that might not have been caught by Vue ( because the props object is extended dynamically )
+            const attrs = Object.assign({}, this.$attrs);
+    
+            // Create our pond
+            this._pond = create(
+                this._element,
+                Object.assign(options, attrs, this.$options.propsData)
+            );
+    
+            // Copy instance method references to component instance
+            Object.keys(this._pond)
+                .filter(key => !filteredComponentMethods.includes(key))
+                .forEach(key => {
+                    this[key] = this._pond[key];
+                });
+        },
+    
+        // Will clean up FilePond instance when unmounted
+        beforeDestroy () {
+            // exit when no pond defined
+            if (!this._pond) {
+                return;
+            }
+    
+            this._pond.destroy();
         }
+    });
 
-        // get pond element
-        this._element = this.$el.querySelector('input');
-
-        // Map FilePond callback methods to Vue $emitters
-        const options = events.reduce((obj, value) => {
-            obj[value] = (...args) => {
-                this.$emit(value.substr(2), ...args);
-            };
-            return obj;
-        }, {});
-
-        // Scoop up attributes that might not have been caught by Vue ( because the props object is extended dynamically )
-        const attrs = Object.assign({}, this.$attrs);
-
-        // Create our pond
-        this._pond = create(
-            this._element,
-            Object.assign(options, attrs, this.$options.propsData)
-        );
-
-        // Copy instance method references to component instance
-        Object.keys(this._pond)
-            .filter(key => !filteredComponentMethods.includes(key))
-            .forEach(key => {
-                this[key] = this._pond[key];
-            });
-    },
-
-    // Will clean up FilePond instance when unmounted
-    beforeDestroy: function () {
-        // exit when no pond defined
-        if (!this._pond) {
-            return;
-        }
-
-        this._pond.destroy();
-    }
-});
+};
 

@@ -26,7 +26,7 @@ Usage:
 <template>
   <div id="app">
 
-    <FilePond
+    <file-pond
         name="test"
         ref="pond"
         label-idle="Drop files here..."
@@ -41,14 +41,17 @@ Usage:
 
 <script>
 // Import Vue FilePond
-import FilePond, { registerPlugin } from 'vue-filepond';
+import vueFilePond from 'vue-filepond';
 
 // Import FilePond styles
 import 'filepond/dist/filepond.min.css';
 
-// Register file type validation plugin
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-registerPlugin(FilePondPluginFileValidateType);
+// Import file type validation plugin
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.esm.js';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.esm.js';
+
+// Create component
+const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview);
 
 export default {
     name: 'app',
