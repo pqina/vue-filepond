@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v2.0.1
+ * vue-filepond v2.1.0
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
@@ -53,6 +53,21 @@ const events = [];
 
 // Props to watch
 const watch = {};
+
+// all active instances
+const instances = [];
+
+// global options
+let globalOptions = {};
+export const setOptions = (options) => {
+    globalOptions = Object.assign(
+        globalOptions,
+        options
+    );
+    instances.forEach(instance => {
+        instance.setOptions(globalOptions);
+    });
+};
 
 export default (...plugins) => {
 
@@ -129,15 +144,24 @@ export default (...plugins) => {
             // Create our pond
             this._pond = create(
                 this._element,
-                Object.assign(options, attrs, this.$options.propsData)
+                Object.assign(
+                    globalOptions,
+                    options, 
+                    attrs, 
+                    this.$options.propsData
+                )
             );
-    
+            
             // Copy instance method references to component instance
             Object.keys(this._pond)
                 .filter(key => !filteredComponentMethods.includes(key))
                 .forEach(key => {
                     this[key] = this._pond[key];
                 });
+
+            // Add to instances so we can apply global options when used
+            instances.push(this._pond);
+    
         },
     
         // Will clean up FilePond instance when unmounted
@@ -147,7 +171,15 @@ export default (...plugins) => {
                 return;
             }
     
+            // bye bye pond
             this._pond.destroy();
+
+            // remove from instances
+            const index = instances.findIndex(this._pond);
+            if (index >= 0) {
+                instances.splice(index, 1);
+            }
+
         }
     });
 

@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v2.0.1
+ * vue-filepond v2.1.0
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
@@ -13,6 +13,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.setOptions = undefined;
 
 var _vue = require('vue');
 
@@ -48,6 +49,18 @@ var events = [];
 
 // Props to watch
 var watch = {};
+
+// all active instances
+var instances = [];
+
+// global options
+var globalOptions = {};
+var setOptions = exports.setOptions = function setOptions(options) {
+    globalOptions = Object.assign(globalOptions, options);
+    instances.forEach(function (instance) {
+        instance.setOptions(globalOptions);
+    });
+};
 
 exports.default = function () {
 
@@ -131,7 +144,7 @@ exports.default = function () {
             var attrs = Object.assign({}, this.$attrs);
 
             // Create our pond
-            this._pond = (0, _filepond.create)(this._element, Object.assign(options, attrs, this.$options.propsData));
+            this._pond = (0, _filepond.create)(this._element, Object.assign(globalOptions, options, attrs, this.$options.propsData));
 
             // Copy instance method references to component instance
             Object.keys(this._pond).filter(function (key) {
@@ -139,6 +152,9 @@ exports.default = function () {
             }).forEach(function (key) {
                 _this[key] = _this._pond[key];
             });
+
+            // Add to instances so we can apply global options when used
+            instances.push(this._pond);
         },
 
 
@@ -149,7 +165,14 @@ exports.default = function () {
                 return;
             }
 
+            // bye bye pond
             this._pond.destroy();
+
+            // remove from instances
+            var index = instances.findIndex(this._pond);
+            if (index >= 0) {
+                instances.splice(index, 1);
+            }
         }
     });
 };
