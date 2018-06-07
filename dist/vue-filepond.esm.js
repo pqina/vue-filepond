@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v2.1.0
+ * vue-filepond v2.1.1
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
@@ -175,7 +175,7 @@ export default (...plugins) => {
             this._pond.destroy();
 
             // remove from instances
-            const index = instances.findIndex(this._pond);
+            const index = instances.indexOf(this._pond);
             if (index >= 0) {
                 instances.splice(index, 1);
             }
