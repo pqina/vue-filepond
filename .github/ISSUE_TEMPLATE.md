@@ -9,7 +9,7 @@ Hello fellow developer!
 **The more details you provide, the more inclined other developers are to help you and the faster the problem is resolved.**
 
 
-If you think the issue is related FilePond itself and not the framework, please submit the issue in the FilePond repository
+If you think the issue is related FilePond itself and not the Vue framework or adapter, please submit the issue in the FilePond repository.
 
 Please format code snippets using backticks and don't forget to set the appropriate language.
 https://help.github.com/articles/creating-and-highlighting-code-blocks/
