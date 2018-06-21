@@ -1,9 +1,8 @@
 Hello fellow developer!
 
+💡 If you want to submit a feature request, go right ahead!
 
-💡 If you're submitting a feature request, go right ahead!
-
-🐜 If not, please read the instructions below.
+🐜 If you've found a bug, please use the template below to report it.
 
 
 **The more details you provide, the more inclined other developers are to help you and the faster the problem is resolved.**
