@@ -1,6 +1,6 @@
 {
     "name": "vue-filepond",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "license": "MIT",
@@ -34,7 +34,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "filepond": "^1.7.0"
+        "filepond": "^1.8.0"
     },
     "peerDependencies": {
         "vue": "^2.5.13"
