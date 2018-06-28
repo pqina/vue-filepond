@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v2.1.3
+ * vue-filepond v2.1.5
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
@@ -140,7 +140,7 @@ export default (...plugins) => {
     
             // Scoop up attributes that might not have been caught by Vue ( because the props object is extended dynamically )
             const attrs = Object.assign({}, this.$attrs);
-    
+
             // Create our pond
             this._pond = create(
                 this._element,
