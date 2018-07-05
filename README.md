@@ -11,7 +11,7 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 Installation:
 
 ```bash
-npm install vue-filepond filepond-plugin-file-validate-type filepond-plugin-image-preview  --save
+npm install vue-filepond --save
 ```
 
 For browser:
@@ -45,6 +45,9 @@ import vueFilePond from 'vue-filepond';
 
 // Import FilePond styles
 import 'filepond/dist/filepond.min.css';
+
+// Import FilePond plugins
+// Please note that you need to install these plugins separately
 
 // Import image preview plugin styles
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
