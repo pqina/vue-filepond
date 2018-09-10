@@ -1,5 +1,21 @@
 {
+    "moduleId": "vueFilePond",
     "presets": [
-        "env"
+        [
+            "env", 
+            {
+                "targets": {
+                    "ie": "11"
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        ["transform-es2015-modules-umd", {
+            "globals": {
+                "vue": "Vue",
+                "filepond": "FilePond"
+            }
+        }]
     ]
 }

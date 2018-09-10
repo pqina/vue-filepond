@@ -1,6 +1,6 @@
 {
     "name": "vue-filepond",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "license": "MIT",
@@ -42,6 +42,7 @@
     "devDependencies": {
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
+        "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
         "babel-preset-env": "^1.6.1",
         "bannerjs": "^1.0.5",
         "minicat": "^1.0.0",
