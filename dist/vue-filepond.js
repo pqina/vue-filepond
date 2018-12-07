@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v4.0.1
+ * vue-filepond v4.0.2
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2018 PQINA
@@ -50,7 +50,8 @@
             array: Array,
             function: Function,
             int: Number,
-            serverapi: Object
+            serverapi: Object,
+            object: Object
         }[type];
     };
 
