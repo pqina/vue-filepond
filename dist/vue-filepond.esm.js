@@ -1,8 +1,8 @@
 /*!
- * vue-filepond v4.0.2
+ * vue-filepond v4.0.3
  * A handy FilePond adapter component for Vue
  * 
- * Copyright (c) 2018 PQINA
+ * Copyright (c) 2019 PQINA
  * https://pqina.nl/filepond
  * 
  * Licensed under the MIT license.
@@ -146,6 +146,7 @@ export default (...plugins) => {
             this._pond = create(
                 this._element,
                 Object.assign(
+                    {},
                     globalOptions,
                     options, 
                     attrs, 

@@ -1,8 +1,8 @@
 /*!
- * vue-filepond v4.0.2
+ * vue-filepond v4.0.3
  * A handy FilePond adapter component for Vue
  * 
- * Copyright (c) 2018 PQINA
+ * Copyright (c) 2019 PQINA
  * https://pqina.nl/filepond
  * 
  * Licensed under the MIT license.
@@ -158,7 +158,7 @@
                 var attrs = Object.assign({}, this.$attrs);
 
                 // Create our pond
-                this._pond = (0, _filepond.create)(this._element, Object.assign(globalOptions, options, attrs, this.$options.propsData));
+                this._pond = (0, _filepond.create)(this._element, Object.assign({}, globalOptions, options, attrs, this.$options.propsData));
 
                 // Copy instance method references to component instance
                 Object.keys(this._pond).filter(function (key) {
