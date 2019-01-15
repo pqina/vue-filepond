@@ -4,6 +4,7 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pqina/vue-filepond/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/vue-filepond.svg)](https://www.npmjs.com/package/vue-filepond)
+[![Support on Patreon](https://img.shields.io/badge/support-patreon-salmon.svg)](https://www.patreon.com/rikschennink)
 
 <img src="https://github.com/pqina/filepond-github-assets/blob/master/filepond-animation-01.gif?raw=true" width="370" alt=""/>
 
@@ -75,28 +76,37 @@ export default {
 Usage in the browser:
 
 ```html
+<!doctype html>
+<html>
+  <head>
+    <title>Vue in Browser</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/filepond/dist/filepond.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css">
 
-<link rel="stylesheet" href="https://unpkg.com/filepond/dist/filepond.min.css">
-<link rel="stylesheet" href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css">
-
-<script src="https://unpkg.com/filepond-plugin-image-preview"></script>
-<script src="https://unpkg.com/filepond"></script>
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/vue-filepond"></script>
-
-<div id="app">
-    <file-pond></file-pond>
-</div>
-
-<script>
-new Vue({
-    el: '#app',
-    components: {
-        FilePond: vueFilePond.default(FilePondPluginImagePreview)
-    }
-})
-</script>
-
+  </head>
+  <body>
+    
+    <div id="app">
+        <file-pond></file-pond>
+    </div>
+    
+    <script src="https://unpkg.com/filepond-plugin-image-preview"></script>
+    <script src="https://unpkg.com/filepond"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-filepond"></script>
+    
+    <script>
+    new Vue({
+        el: '#app',
+        components: {
+            FilePond: vueFilePond.default(FilePondPluginImagePreview)
+        }
+    })
+    </script>
+    
+  </body>
+</html>
 ```
 
 
