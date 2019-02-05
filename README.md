@@ -72,6 +72,17 @@ export default {
 </script>
 ```
 
+SSR Usage(Nuxt.js Users)
+
+```vue
+<template>
+    <no-ssr>
+        <file-pond
+            // options
+        />
+    </no-ssr>
+</template>
+```
 
 Usage in the browser:
 
