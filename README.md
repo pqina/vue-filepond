@@ -72,6 +72,15 @@ export default {
 </script>
 ```
 
+When using FilePond with an SSR configuration like Nuxt.js it's best to wrap it in `<no-ssr>` tags.
+
+```vue
+<template>
+    <no-ssr>
+        <file-pond/>
+    </no-ssr>
+</template>
+```
 
 Usage in the browser:
 
