@@ -72,14 +72,12 @@ export default {
 </script>
 ```
 
-SSR Usage(Nuxt.js Users)
+When using FilePond with an SSR configuration like Nuxt.js it's best to wrap it in `<no-ssr>` tags.
 
 ```vue
 <template>
     <no-ssr>
-        <file-pond
-            // options
-        />
+        <file-pond/>
     </no-ssr>
 </template>
 ```
