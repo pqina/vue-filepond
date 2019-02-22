@@ -120,3 +120,4 @@ Usage in the browser:
 
 
 [Read the docs for more information](https://pqina.nl/filepond/docs/patterns/frameworks/vue/)
+[Live Demo with Code Sandbox](https://codesandbox.io/s/p3v8zoprp7)
