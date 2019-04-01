@@ -134,6 +134,7 @@ export default (...plugins) => {
             // Map FilePond callback methods to Vue $emitters
             const options = events.reduce((obj, value) => {
                 obj[value] = (...args) => {
+                    this.$emit('input', this._pond.getFiles());
                     this.$emit(value.substr(2), ...args);
                 };
                 return obj;
