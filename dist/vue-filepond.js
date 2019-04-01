@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v5.0.0
+ * vue-filepond v5.1.0
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2019 PQINA
@@ -149,6 +149,7 @@
                             args[_key] = arguments[_key];
                         }
 
+                        _this.$emit('input', _this._pond.getFiles());
                         _this.$emit.apply(_this, [value.substr(2)].concat(args));
                     };
                     return obj;
