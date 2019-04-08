@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.5.22",
-    "vue-filepond": "^4.0.3",
-    "filepond": "^4.0.1",
+    "filepond": "^4.3.6",
     "filepond-plugin-image-exif-orientation": "^1.0.4",
-    "filepond-plugin-image-preview": "^4.0.1"
+    "filepond-plugin-image-preview": "^4.0.5",
+    "vue": "^2.5.22",
+    "vue-filepond": "^4.0.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
