@@ -174,7 +174,7 @@
 
 
             // Will clean up FilePond instance when unmounted
-            beforeDestroy: function beforeDestroy() {
+            destroy: function destroy() {
                 // exit when no pond defined
                 if (!this._pond) {
                     return;
