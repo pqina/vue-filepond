@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v5.1.0
+ * vue-filepond v5.1.1
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2019 PQINA
@@ -121,6 +121,7 @@ export default (...plugins) => {
                 ]
             );
         },
+
         // Will setup FilePond instance when mounted
         mounted () {
             // exit here if not supported
@@ -168,11 +169,37 @@ export default (...plugins) => {
         },
     
         // Will clean up FilePond instance when unmounted
-        beforeDestroy () {
-            // exit when no pond defined
-            if (!this._pond) {
+        destroyed () {
+
+            // reference to detached method
+            const { detached } = this.$options;
+            
+            // no longer attached, clean up
+            if (!this.$el.offsetParent) {
+                detached.call(this);
                 return;
             }
+
+            // if we're still attached it's likely a transition is running, we need to 
+            // determine the moment when we're no longer attached to the DOM so we can 
+            // clean up properly
+            const mutationHandler = (mutations, observer) => {
+                const removedNodes = (mutations[0] || {}).removedNodes || [];
+                if (!removedNodes[0] === this.$el) return;
+                observer.disconnect();
+                detached.call(this);
+            }
+
+            // start observing parent element for changes to the DOM
+            const observer = new MutationObserver(mutationHandler);
+            observer.observe(this.$parent.$el, { childList: true })
+        },
+
+        // called when the component root node has been detached
+        detached () {
+
+            // exit when no pond defined
+            if (!this._pond) return;
     
             // bye bye pond
             this._pond.destroy();
@@ -183,6 +210,8 @@ export default (...plugins) => {
                 instances.splice(index, 1);
             }
 
+            // clear reference
+            this._pond = null;
         }
     });
 

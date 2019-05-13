@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v5.1.0
+ * vue-filepond v5.1.1
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2019 PQINA
@@ -130,6 +130,7 @@
                 })]);
             },
 
+
             // Will setup FilePond instance when mounted
             mounted: function mounted() {
                 var _this = this;
@@ -174,11 +175,40 @@
 
 
             // Will clean up FilePond instance when unmounted
-            beforeDestroy: function beforeDestroy() {
-                // exit when no pond defined
-                if (!this._pond) {
+            destroyed: function destroyed() {
+                var _this2 = this;
+
+                // reference to detached method
+                var detached = this.$options.detached;
+
+                // no longer attached, clean up
+
+                if (!this.$el.offsetParent) {
+                    detached.call(this);
                     return;
                 }
+
+                // if we're still attached it's likely a transition is running, we need to 
+                // determine the moment when we're no longer attached to the DOM so we can 
+                // clean up properly
+                var mutationHandler = function mutationHandler(mutations, observer) {
+                    var removedNodes = (mutations[0] || {}).removedNodes || [];
+                    if (!removedNodes[0] === _this2.$el) return;
+                    observer.disconnect();
+                    detached.call(_this2);
+                };
+
+                // start observing parent element for changes to the DOM
+                var observer = new MutationObserver(mutationHandler);
+                observer.observe(this.$parent.$el, { childList: true });
+            },
+
+
+            // called when the component root node has been detached
+            detached: function detached() {
+
+                // exit when no pond defined
+                if (!this._pond) return;
 
                 // bye bye pond
                 this._pond.destroy();
@@ -188,6 +218,9 @@
                 if (index >= 0) {
                     instances.splice(index, 1);
                 }
+
+                // clear reference
+                this._pond = null;
             }
         });
     };
