@@ -150,7 +150,11 @@
                             args[_key] = arguments[_key];
                         }
 
-                        _this.$emit('input', _this._pond.getFiles());
+                        if (_this._pond) {
+                            _this.$emit('input', _this._pond.getFiles());
+                        } else {
+                            _this.$emit('input', []);
+                        }
                         _this.$emit.apply(_this, [value.substr(2)].concat(args));
                     };
                     return obj;
