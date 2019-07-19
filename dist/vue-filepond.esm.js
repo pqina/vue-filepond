@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v5.1.1
+ * vue-filepond v5.1.2
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2019 PQINA
@@ -135,11 +135,7 @@ export default (...plugins) => {
             // Map FilePond callback methods to Vue $emitters
             const options = events.reduce((obj, value) => {
                 obj[value] = (...args) => {
-                    if(this._pond){
-                        this.$emit('input', this._pond.getFiles());
-                    }else{
-                        this.$emit('input', []);
-                    }
+                    this.$emit('input', this._pond ? this._pond.getFiles() : []);
                     this.$emit(value.substr(2), ...args);
                 };
                 return obj;

@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.1.2
+
+- Fix issue with 'input' event.
+
+
 ## 5.1.1
 
 - Add `detached` method, the component now waits to be removed from the DOM, it then destroys the FilePond instance (the `destroyed` and `beforeDestroy` methods both run while the component is still in the DOM when using transitions).
