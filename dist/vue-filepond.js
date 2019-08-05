@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v5.1.2
+ * vue-filepond v5.1.3
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2019 PQINA
@@ -193,14 +193,15 @@
                 // clean up properly
                 var mutationHandler = function mutationHandler(mutations, observer) {
                     var removedNodes = (mutations[0] || {}).removedNodes || [];
-                    if (!removedNodes[0] === _this2.$el) return;
+                    var removedNode = removedNodes[0];
+                    if (!removedNode || !removedNode.contains(_this2.$el)) return;
                     observer.disconnect();
                     detached.call(_this2);
                 };
 
                 // start observing parent element for changes to the DOM
                 var observer = new MutationObserver(mutationHandler);
-                observer.observe(this.$parent.$el, { childList: true });
+                observer.observe(document.documentElement, { childList: true, subtree: true });
             },
 
 

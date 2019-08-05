@@ -1,5 +1,10 @@
 # Changelog
 
+## 5.1.3
+
+- Fix FilePond detach handling
+
+
 ## 5.1.2
 
 - Fix issue with 'input' event.
