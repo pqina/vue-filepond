@@ -48,7 +48,7 @@ Usage:
         name="test"
         ref="pond"
         label-idle="Drop files here..."
-        allow-multiple="true"
+        v-bind:allow-multiple="true"
         accepted-file-types="image/jpeg, image/png"
         server="/api"
         v-bind:files="myFiles"
