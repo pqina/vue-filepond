@@ -9,6 +9,11 @@
     "browser": "dist/vue-filepond.js",
     "module": "dist/vue-filepond.esm.js",
     "unpkg": "dist/vue-filepond.min.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "dist",
+        "types/*.d.ts"
+    ],
     "keywords": [
         "vue",
         "vuejs",
@@ -33,9 +38,9 @@
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
         "prepare": "npm run build"
     },
-    "peerDependencies": {
-        "filepond": ">=3.x <5.x",
-        "vue": ">=2.6.x"
+    "dependencies": {
+        "filepond": ">=4.5.1 <5.x",
+        "vue": "^2.6.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.5.5",
@@ -46,6 +51,7 @@
         "minicat": "^1.0.0",
         "mkdirp": "^0.5.1",
         "nodemon": "^1.19.1",
+        "typescript": "^3.6.2",
         "uglify-js": "^3.6.0"
     }
 }
