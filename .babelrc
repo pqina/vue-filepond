@@ -2,7 +2,7 @@
     "moduleId": "vueFilePond",
     "presets": [
         [
-            "env", 
+            "@babel/preset-env", 
             {
                 "targets": {
                     "ie": "11"
@@ -11,7 +11,7 @@
         ]
     ],
     "plugins": [
-        ["transform-es2015-modules-umd", {
+        ["@babel/plugin-transform-modules-umd", {
             "globals": {
                 "vue": "Vue",
                 "filepond": "FilePond"
