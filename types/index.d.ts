@@ -1,11 +1,14 @@
 // TypeScript Version: 3.5
 import { Component } from "vue"
-import * as FilePond from "filepond"
+import { FilePondOptionProps, FilePondCallbackProps, FilePond } from "filepond";
 
 type Except<ObjectType, KeysType extends keyof ObjectType> = Pick<ObjectType, Exclude<keyof ObjectType, KeysType>>;
 
-type VueFilepondProps = Except<FilePond.FilePond,
-    'setOptions' |
+/** Props for the component */
+type VueFilepondProps = Except<FilePondOptionProps, keyof FilePondCallbackProps>;
+
+/** Instance methods */
+export type VueFilePondInstance = Except<FilePond, 'setOptions' |
     'on' |
     'off' |
     'onOnce' |
@@ -15,8 +18,8 @@ type VueFilepondProps = Except<FilePond.FilePond,
     'isAttachedTo' |
     'replaceElement' |
     'restoreElement' |
-    'destroy'>
+    'destroy'>;
 
-declare const VueFilepond: Component<any, any, any, VueFilepondProps>
+declare const VueFilepond: (plugins: any[]) => Component<any, VueFilePondInstance, any, VueFilepondProps>
 
-export default VueFilepond
+export default VueFilepond;
