@@ -39,7 +39,7 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "filepond": ">=4.5.1 <5.x",
+        "filepond": ">=4.6.0 < 5.x",
         "vue": "^2.6.0"
     },
     "devDependencies": {

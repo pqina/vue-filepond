@@ -7,8 +7,7 @@ type Except<ObjectType, KeysType extends keyof ObjectType> = Pick<ObjectType, Ex
 /** Props for the component */
 type VueFilepondProps = Except<FilePondOptionProps, keyof FilePondCallbackProps>;
 
-/** Instance methods */
-type VueFilePondInstanceMethods = Except<FilePond, 'setOptions' |
+type FilteredMethods = 'setOptions' |
     'on' |
     'off' |
     'onOnce' |
@@ -18,8 +17,13 @@ type VueFilePondInstanceMethods = Except<FilePond, 'setOptions' |
     'isAttachedTo' |
     'replaceElement' |
     'restoreElement' |
-    'destroy'>;
+    'destroy'
 
-export class VueFilePondInstance extends VueConstructor<VueFilePondInstanceMethods>{}
+/** Instance methods */
+type VueFilePondInstanceMethods = Except<FilePond, FilteredMethods>;
 
-export default function VueFilePond(plugins?: any[]): ComponentOptions<any, VueFilePondInstanceMethods, any, VueFilepondProps>
+export class VueFilePondInstance extends VueConstructor<VueFilePondInstanceMethods>{ }
+
+declare const VueFilePond: (plugins?: any[]) => ComponentOptions<any, VueFilePondInstanceMethods, any, VueFilepondProps>
+
+export default VueFilePond;
