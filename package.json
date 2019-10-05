@@ -39,19 +39,19 @@
         "prepare": "npm run build"
     },
     "dependencies": {
-        "filepond": ">=4.6.0 < 5.x",
-        "vue": "^2.6.0"
+        "filepond": ">=4.7.2 < 5.x",
+        "vue": ">=2.6.0 < 3.x"
     },
     "devDependencies": {
-        "@babel/cli": "^7.5.5",
-        "@babel/core": "^7.5.5",
+        "@babel/cli": "^7.6.2",
+        "@babel/core": "^7.6.2",
         "@babel/plugin-transform-modules-umd": "^7.2.0",
-        "@babel/preset-env": "^7.5.5",
+        "@babel/preset-env": "^7.6.2",
         "bannerjs": "^1.0.6",
         "minicat": "^1.0.0",
         "mkdirp": "^0.5.1",
-        "nodemon": "^1.19.1",
-        "typescript": "^3.6.2",
+        "nodemon": "^1.19.3",
+        "typescript": "^3.6.3",
         "uglify-js": "^3.6.0"
     }
 }
