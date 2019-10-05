@@ -38,7 +38,7 @@
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
         "prepare": "npm run build"
     },
-    "dependencies": {
+    "peerDependencies": {
         "filepond": ">=4.7.2 < 5.x",
         "vue": ">=2.6.0 < 3.x"
     },
@@ -47,6 +47,8 @@
         "@babel/core": "^7.6.2",
         "@babel/plugin-transform-modules-umd": "^7.2.0",
         "@babel/preset-env": "^7.6.2",
+        "filepond": "4.7.2",
+        "vue": "2.6.10",
         "bannerjs": "^1.0.6",
         "minicat": "^1.0.0",
         "mkdirp": "^0.5.1",
