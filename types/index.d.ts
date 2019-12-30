@@ -23,7 +23,7 @@ type FilteredMethods = 'setOptions' |
 type VueFilePondInstanceMethods = Except<FilePond, FilteredMethods>;
 
 /** Reference type for typed $refs */
-export class VueFilePondInstance extends VueConstructor<VueFilePondInstanceMethods>{ }
+export class VueFilePondComponent extends VueConstructor<VueFilePondInstanceMethods>{ }
 
 declare const VueFilePond: (plugins?: any[]) => ComponentOptions<any, VueFilePondInstanceMethods, any, VueFilepondProps>
 
