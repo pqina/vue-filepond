@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "filepond": "^4.7.4",
+    "filepond": "^4.9.3",
     "filepond-plugin-image-exif-orientation": "^1.0.6",
     "filepond-plugin-image-preview": "^4.5.0",
     "vue": "^2.6.10",
