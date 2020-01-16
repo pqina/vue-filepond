@@ -1,5 +1,15 @@
 # Changelog
 
+## 6.0.1
+
+- Fix TypeScript issue with `vueFilePond()` call
+
+
+## 6.0.0
+
+- Add TypeScript Types
+
+
 ## 5.1.3
 
 - Fix FilePond detach handling

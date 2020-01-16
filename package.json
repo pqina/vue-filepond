@@ -1,6 +1,6 @@
 {
     "name": "vue-filepond",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "license": "MIT",
