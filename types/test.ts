@@ -1,7 +1,10 @@
 import VueFilePond, { VueFilePondComponent } from "vue-filepond";
 import Vue from "vue"
 
-const Filepond = VueFilePond()
+const SomePlugin = {}
+const OtherPlugin = {}
+
+const Filepond = VueFilePond(SomePlugin, OtherPlugin)
 
 Vue.component('Filepond', Filepond)
 
