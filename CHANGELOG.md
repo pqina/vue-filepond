@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.0.2
+
+- Fix TypeScript issue with `vueFilePond(plugins)` call
+
+
 ## 6.0.1
 
 - Fix TypeScript issue with `vueFilePond()` call
