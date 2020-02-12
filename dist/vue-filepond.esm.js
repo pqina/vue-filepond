@@ -8,7 +8,7 @@
  * Licensed under the MIT license.
  */
 
-import Vue from 'vue';
+import Vue from 'vue/dist/vue.esm';
 import {
     OptionTypes,
     create,
