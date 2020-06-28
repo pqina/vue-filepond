@@ -34,7 +34,7 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 Installation:
 
 ```bash
-npm install vue-filepond filepond --save
+npm install vue-filepond filepond
 ```
 
 Usage:
