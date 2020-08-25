@@ -1,6 +1,6 @@
 {
     "name": "vue-filepond",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "description": "A handy FilePond adapter component for Vue",
     "homepage": "https://pqina.nl/filepond",
     "license": "MIT",
@@ -34,7 +34,7 @@
         "build": "mkdirp dist && npm run build:browser && npm run build:module",
         "build:browser": "babel lib | bannerjs -m > dist/vue-filepond.js",
         "postbuild:browser": "uglifyjs dist/vue-filepond.js --compress --comments '/^!/' --output dist/vue-filepond.min.js",
-        "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
+        "build:module": "minicat lib/index.js | replace \"import Vue from 'vue';\" \"import Vue from 'vue/dist/vue.esm';\" -z | bannerjs -m > dist/vue-filepond.esm.js",
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
         "prepare": "npm run build"
     },
@@ -47,13 +47,14 @@
         "@babel/core": "^7.7.7",
         "@babel/plugin-transform-modules-umd": "^7.7.4",
         "@babel/preset-env": "^7.7.7",
-        "filepond": "4.9.3",
-        "vue": "2.6.11",
         "bannerjs": "^1.0.7",
+        "filepond": "4.9.3",
         "minicat": "^1.0.0",
         "mkdirp": "^0.5.1",
         "nodemon": "^2.0.2",
+        "replace": "^1.2.0",
         "typescript": "^3.7.4",
-        "uglify-js": "^3.7.3"
+        "uglify-js": "^3.7.3",
+        "vue": "2.6.11"
     }
 }
