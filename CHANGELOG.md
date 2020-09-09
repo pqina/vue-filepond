@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.0.3
+
+- FilePond esm version also imports vue esm version
+
 ## 6.0.2
 
 - Fix TypeScript issue with `vueFilePond(plugins)` call
