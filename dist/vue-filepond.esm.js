@@ -1,5 +1,5 @@
 /*!
- * vue-filepond v6.0.2
+ * vue-filepond v6.0.3
  * A handy FilePond adapter component for Vue
  * 
  * Copyright (c) 2020 PQINA
@@ -8,7 +8,7 @@
  * Licensed under the MIT license.
  */
 
-import Vue from 'vue';
+import Vue from 'vue/dist/vue.esm';
 import {
     OptionTypes,
     create,
