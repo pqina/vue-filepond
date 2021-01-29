@@ -1,5 +1,5 @@
 // TypeScript Version: 3.6
-import VueConstructor, { Component, ComponentOptions } from "vue"
+import { VueConstructor, ComponentOptions } from 'vue';
 import { FilePondOptionProps, FilePondCallbackProps, FilePond } from "filepond";
 
 type Except<ObjectType, KeysType extends keyof ObjectType> = Pick<ObjectType, Exclude<keyof ObjectType, KeysType>>;

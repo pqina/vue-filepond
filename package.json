@@ -5,10 +5,10 @@
     "homepage": "https://pqina.nl/filepond",
     "license": "MIT",
     "repository": "pqina/vue-filepond",
-    "main": "dist/vue-filepond.js",
-    "browser": "dist/vue-filepond.js",
+    "main": "dist/vue-filepond.umd.min.js",
+    "browser": "dist/vue-filepond.umd.min.js",
     "module": "dist/vue-filepond.esm.js",
-    "unpkg": "dist/vue-filepond.min.js",
+    "unpkg": "dist/vue-filepond.umd.min.js",
     "types": "types/index.d.ts",
     "files": [
         "dist",
@@ -31,30 +31,32 @@
         "url": "https://pqina.nl"
     },
     "scripts": {
-        "build": "mkdirp dist && npm run build:browser && npm run build:module",
-        "build:browser": "babel lib | bannerjs -m > dist/vue-filepond.js",
-        "postbuild:browser": "uglifyjs dist/vue-filepond.js --compress --comments '/^!/' --output dist/vue-filepond.min.js",
-        "build:module": "minicat lib/index.js | replace \"import Vue from 'vue';\" \"import Vue from 'vue/dist/vue.esm';\" -z | bannerjs -m > dist/vue-filepond.esm.js",
+        "build": "npm run build:lib && npm run build:module",
+        "build:lib": "vue-cli-service build --target lib --name vue-filepond lib/index.js --mode production && rm ./dist/demo.html",
+        "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
         "prepare": "npm run build"
     },
     "peerDependencies": {
         "filepond": ">=4.7.4 < 5.x",
-        "vue": ">=2.6.0 < 3.x"
+        "vue": ">=3.0.5"
     },
     "devDependencies": {
-        "@babel/cli": "^7.7.7",
-        "@babel/core": "^7.7.7",
-        "@babel/plugin-transform-modules-umd": "^7.7.4",
-        "@babel/preset-env": "^7.7.7",
+        "@babel/core": "^7.12.10",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-plugin-eslint": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "@vue/compiler-sfc": "^3.0.0",
+        "babel-eslint": "^10.1.0",
         "bannerjs": "^1.0.7",
+        "core-js": "^3.6.5",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^7.0.0-0",
         "filepond": "4.9.3",
         "minicat": "^1.0.0",
-        "mkdirp": "^0.5.1",
         "nodemon": "^2.0.2",
-        "replace": "^1.2.0",
         "typescript": "^3.7.4",
-        "uglify-js": "^3.7.3",
-        "vue": "2.6.11"
+        "uglify-js": "^3.12.5",
+        "vue": "^3.0.5"
     }
 }
