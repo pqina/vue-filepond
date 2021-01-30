@@ -1,13 +1,3 @@
-/*!
- * vue-filepond v6.0.3
- * A handy FilePond adapter component for Vue
- * 
- * Copyright (c) 2021 PQINA
- * https://pqina.nl/filepond
- * 
- * Licensed under the MIT license.
- */
-
 import { defineComponent, onUnmounted, onMounted, ref, h } from 'vue';
 import {
     getOptions,
@@ -175,7 +165,7 @@ export default (...plugins) => {
             onUnmounted(() => {
 
                 // no longer attached, clean up
-                if (root.value && !root.value.offsetParent) {
+                if (root.value === null || !root.value.offsetParent) {
                     detached();
                     return;
                 }
@@ -222,4 +212,3 @@ export default (...plugins) => {
         }
     });
 };
-

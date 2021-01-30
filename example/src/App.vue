@@ -7,13 +7,14 @@
       accepted-file-types="image/jpeg, image/png"
       :server="myServer"
       :files="myFiles"
+      @processFile="handleFilePondProcess"
       @init="handleFilePondInit">
     </file-pond>
   </div>
 </template>
 
 <script>
-import vueFilePond from '../lib/vue-filepond.js';
+import vueFilePond from '@/assets/vue-filepond.js';
 
 // Import FilePond styles
 import 'filepond/dist/filepond.min.css';
@@ -55,12 +56,16 @@ export default defineComponent({
 
    // FilePond instance methods are available on `pond`
     const handleFilePondInit = (pond) => {
-      /* eslint-disable */
       console.log('FilePond has initialized');
-      setTimeout(() => pond.addFile('logo.png'), 4000);
+      setTimeout(() => pond.addFile('logo.png'), 2000);
     };
 
-    return { myFiles, myServer, handleFilePondInit };
+    /* eslint-disable */
+    const handleFilePondProcess = (error, file) => {
+      console.log('FilePond has processed file');
+    };
+
+    return { myFiles, myServer, handleFilePondProcess, handleFilePondInit };
   }
 });
 </script>

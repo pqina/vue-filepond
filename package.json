@@ -35,6 +35,7 @@
         "build:lib": "vue-cli-service build --target lib --name vue-filepond lib/index.js --mode production && rm ./dist/demo.html",
         "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
+        "watch": "nodemon --watch lib -x \"minicat lib/index.js > example/src/assets/vue-filepond.js\"",
         "prepare": "npm run build"
     },
     "peerDependencies": {
