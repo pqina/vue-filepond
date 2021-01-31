@@ -8,7 +8,7 @@
  * Licensed under the MIT license.
  */
 
-import { defineComponent, onUnmounted, onMounted, ref, h } from 'vue';
+import { defineComponent, onUnmounted, onMounted, ref, h } from 'vue/dist/vue.esm-bundler.js';
 import {
     getOptions,
     OptionTypes,

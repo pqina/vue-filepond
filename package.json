@@ -33,7 +33,7 @@
     "scripts": {
         "build": "npm run build:lib && npm run build:module && npm run build:example",
         "build:lib": "vue-cli-service build --target lib --name vue-filepond lib/index.js --mode production && rm ./dist/demo.html",
-        "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
+        "build:module": "minicat lib/index.js | replace \"from 'vue';\" \"from 'vue/dist/vue.esm-bundler.js';\" -z | bannerjs -m > dist/vue-filepond.esm.js",
         "build:example": "minicat lib/index.js | bannerjs -m > example/src/assets/vue-filepond.js",
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
         "watch": "nodemon --watch lib -x \"npm run build:example\"",
@@ -56,6 +56,7 @@
         "eslint-plugin-vue": "^7.0.0-0",
         "filepond": "4.9.3",
         "minicat": "^1.0.0",
+        "replace": "^1.2.0",
         "nodemon": "^2.0.2",
         "typescript": "^3.7.4",
         "uglify-js": "^3.12.5",
