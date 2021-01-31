@@ -31,11 +31,12 @@
         "url": "https://pqina.nl"
     },
     "scripts": {
-        "build": "npm run build:lib && npm run build:module",
+        "build": "npm run build:lib && npm run build:module && npm run build:example",
         "build:lib": "vue-cli-service build --target lib --name vue-filepond lib/index.js --mode production && rm ./dist/demo.html",
         "build:module": "minicat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
+        "build:example": "minicat lib/index.js | bannerjs -m > example/src/assets/vue-filepond.js",
         "build:watch": "nodemon --watch lib -x \"npm run build\"",
-        "watch": "nodemon --watch lib -x \"minicat lib/index.js > example/src/assets/vue-filepond.js\"",
+        "watch": "nodemon --watch lib -x \"npm run build:example\"",
         "prepare": "npm run build"
     },
     "peerDependencies": {
