@@ -9,15 +9,14 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 
 ### Core Features
 
-*   Accepts **directories**, **files**, blobs, local URLs, **remote URLs** and Data URIs.
-*   **Drop files**, select on filesystem, **copy and paste files**, or add files using the API.
-*   **Async uploading** with AJAX, or encode files as base64 data and send along form post.
-*   **Accessible**, tested with AT software like VoiceOver and JAWS, **navigable by Keyboard**.
-*   **Image optimization**, automatic image resizing, **cropping**, and **fixes EXIF orientation**.
-*   **Responsive**, automatically scales to available space, is functional on both **mobile and desktop devices**.
+- Accepts **directories**, **files**, blobs, local URLs, **remote URLs** and Data URIs.
+- **Drop files**, select on filesystem, **copy and paste files**, or add files using the API.
+- **Async uploading** with AJAX, or encode files as base64 data and send along form post.
+- **Accessible**, tested with AT software like VoiceOver and JAWS, **navigable by Keyboard**.
+- **Image optimization**, automatic image resizing, **cropping**, and **fixes EXIF orientation**.
+- **Responsive**, automatically scales to available space, is functional on both **mobile and desktop devices**.
 
 [Learn more about FilePond](https://pqina.nl/filepond/)
-
 
 ---
 
@@ -37,60 +36,64 @@ Installation:
 npm install vue-filepond filepond
 ```
 
+If you're using Vue 2 please run `npm install vue-filepond@^6.0.0`
+
 Usage:
 
 ```vue
 <template>
   <div id="app">
-
     <file-pond
-        name="test"
-        ref="pond"
-        label-idle="Drop files here..."
-        v-bind:allow-multiple="true"
-        accepted-file-types="image/jpeg, image/png"
-        server="/api"
-        v-bind:files="myFiles"
-        v-on:init="handleFilePondInit"/>
-
+      name="test"
+      ref="pond"
+      label-idle="Drop files here..."
+      v-bind:allow-multiple="true"
+      accepted-file-types="image/jpeg, image/png"
+      server="/api"
+      v-bind:files="myFiles"
+      v-on:init="handleFilePondInit"
+    />
   </div>
 </template>
 
 <script>
 // Import Vue FilePond
-import vueFilePond from 'vue-filepond';
+import vueFilePond from "vue-filepond";
 
 // Import FilePond styles
-import 'filepond/dist/filepond.min.css';
+import "filepond/dist/filepond.min.css";
 
 // Import FilePond plugins
 // Please note that you need to install these plugins separately
 
 // Import image preview plugin styles
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
 
 // Import image preview and file type validation plugins
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 
 // Create component
-const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview);
+const FilePond = vueFilePond(
+  FilePondPluginFileValidateType,
+  FilePondPluginImagePreview
+);
 
 export default {
-    name: 'app',
-    data: function() {
-        return { myFiles: ['cat.jpeg'] };
-    },
-    methods: {
-        handleFilePondInit: function() {
-            console.log('FilePond has initialized');
+  name: "app",
+  data: function () {
+    return { myFiles: ["cat.jpeg"] };
+  },
+  methods: {
+    handleFilePondInit: function () {
+      console.log("FilePond has initialized");
 
-            // FilePond instance methods are available on `this.$refs.pond`
-        }
+      // FilePond instance methods are available on `this.$refs.pond`
     },
-    components: {
-        FilePond
-    }
+  },
+  components: {
+    FilePond,
+  },
 };
 </script>
 ```
@@ -99,48 +102,50 @@ When using FilePond with an SSR configuration like Nuxt.js it's best to wrap it 
 
 ```vue
 <template>
-    <no-ssr>
-        <file-pond/>
-    </no-ssr>
+  <no-ssr>
+    <file-pond />
+  </no-ssr>
 </template>
 ```
 
 Usage in the browser:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Vue in Browser</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/filepond/dist/filepond.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css">
 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/filepond/dist/filepond.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"
+    />
   </head>
   <body>
-    
     <div id="app">
-        <file-pond></file-pond>
+      <file-pond></file-pond>
     </div>
-    
+
     <script src="https://unpkg.com/filepond-plugin-image-preview"></script>
     <script src="https://unpkg.com/filepond"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/vue-filepond"></script>
-    
+
     <script>
-    new Vue({
-        el: '#app',
+      new Vue({
+        el: "#app",
         components: {
-            FilePond: vueFilePond.default(FilePondPluginImagePreview)
-        }
-    })
+          FilePond: vueFilePond.default(FilePondPluginImagePreview),
+        },
+      });
     </script>
-    
   </body>
 </html>
 ```
-
 
 [Read the docs for more information](https://pqina.nl/filepond/docs/patterns/frameworks/vue/)
 

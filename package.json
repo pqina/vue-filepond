@@ -1,60 +1,60 @@
 {
-    "name": "vue-filepond",
-    "version": "6.0.3",
-    "description": "A handy FilePond adapter component for Vue",
-    "homepage": "https://pqina.nl/filepond",
-    "license": "MIT",
-    "repository": "pqina/vue-filepond",
-    "main": "dist/vue-filepond.js",
-    "browser": "dist/vue-filepond.js",
-    "module": "dist/vue-filepond.esm.js",
-    "unpkg": "dist/vue-filepond.min.js",
-    "types": "types/index.d.ts",
-    "files": [
-        "dist",
-        "types/*.d.ts"
-    ],
-    "keywords": [
-        "vue",
-        "vuejs",
-        "filepond",
-        "file",
-        "upload",
-        "drag",
-        "drop",
-        "browse",
-        "image",
-        "preview"
-    ],
-    "author": {
-        "name": "PQINA",
-        "url": "https://pqina.nl"
-    },
-    "scripts": {
-        "build": "mkdirp dist && npm run build:browser && npm run build:module",
-        "build:browser": "babel lib | bannerjs -m > dist/vue-filepond.js",
-        "postbuild:browser": "uglifyjs dist/vue-filepond.js --compress --comments '/^!/' --output dist/vue-filepond.min.js",
-        "build:module": "minicat lib/index.js | replace \"import Vue from 'vue';\" \"import Vue from 'vue/dist/vue.esm';\" -z | bannerjs -m > dist/vue-filepond.esm.js",
-        "build:watch": "nodemon --watch lib -x \"npm run build\"",
-        "prepare": "npm run build"
-    },
-    "peerDependencies": {
-        "filepond": ">=4.7.4 < 5.x",
-        "vue": ">=2.6.0 < 3.x"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.7.7",
-        "@babel/core": "^7.7.7",
-        "@babel/plugin-transform-modules-umd": "^7.7.4",
-        "@babel/preset-env": "^7.7.7",
-        "bannerjs": "^1.0.7",
-        "filepond": "4.9.3",
-        "minicat": "^1.0.0",
-        "mkdirp": "^0.5.1",
-        "nodemon": "^2.0.2",
-        "replace": "^1.2.0",
-        "typescript": "^3.7.4",
-        "uglify-js": "^3.7.3",
-        "vue": "2.6.11"
-    }
+  "name": "vue-filepond",
+  "version": "7.0.0",
+  "description": "A handy FilePond adapter component for Vue",
+  "homepage": "https://pqina.nl/filepond",
+  "license": "MIT",
+  "repository": "pqina/vue-filepond",
+  "main": "dist/vue-filepond.js",
+  "browser": "dist/vue-filepond.js",
+  "module": "dist/vue-filepond.esm.js",
+  "unpkg": "dist/vue-filepond.min.js",
+  "types": "types/index.d.ts",
+  "peerDependencies": {
+    "filepond": ">=4.7.4 < 5.x",
+    "vue": ">=3 < 4"
+  },
+  "files": [
+    "dist",
+    "types/*.d.ts"
+  ],
+  "keywords": [
+    "vue",
+    "vuejs",
+    "filepond",
+    "file",
+    "upload",
+    "drag",
+    "drop",
+    "browse",
+    "image",
+    "preview"
+  ],
+  "author": {
+    "name": "PQINA",
+    "url": "https://pqina.nl"
+  },
+  "scripts": {
+    "build": "mkdirp dist && npm run build:browser && npm run build:module",
+    "build:browser": "babel lib | bannerjs -m > dist/vue-filepond.js",
+    "postbuild:browser": "uglifyjs dist/vue-filepond.js --compress --comments '/^!/' --output dist/vue-filepond.min.js",
+    "build:module": "cat lib/index.js | bannerjs -m > dist/vue-filepond.esm.js",
+    "build:watch": "nodemon --watch lib -x \"npm run build\"",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-modules-umd": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "bannerjs": "^1.0.7",
+    "filepond": "4.9.3",
+    "minicat": "^1.0.0",
+    "mkdirp": "^0.5.1",
+    "nodemon": "^2.0.2",
+    "replace": "^1.2.0",
+    "typescript": "^3.7.4",
+    "uglify-js": "^3.7.3",
+    "vue": "2.6.11"
+  }
 }
