@@ -2,8 +2,12 @@
 
 Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqina/filepond), a JavaScript library that can upload anything you throw at it, optimizes images for faster uploads, and offers a great, accessible, silky smooth user experience.
 
+**If you want to use Vue FilePond with Vue 2, please use v6 of this plugin.**
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pqina/vue-filepond/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/vue-filepond.svg)](https://www.npmjs.com/package/vue-filepond)
+
+FilePond is maintained by **[Rik Schennink](https://twitter.com/rikschennink/)**
 
 <img src="https://github.com/pqina/filepond-github-assets/blob/master/filepond-animation-01.gif?raw=true" width="370" alt=""/>
 
@@ -32,11 +36,11 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 
 Installation:
 
+**If you're using Vue 2 please run `npm install vue-filepond@^6.0.0`**
+
 ```bash
 npm install vue-filepond filepond
 ```
-
-If you're using Vue 2 please run `npm install vue-filepond@^6.0.0`
 
 Usage:
 
