@@ -137,7 +137,7 @@ Usage in the browser:
     <script src="https://unpkg.com/filepond-plugin-image-preview"></script>
     <script src="https://unpkg.com/filepond"></script>
     <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/vue-filepond"></script>
+    <script src="https://unpkg.com/vue-filepond@6"></script>
 
     <script>
       new Vue({
