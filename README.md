@@ -6,7 +6,7 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pqina/vue-filepond/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/vue-filepond.svg)](https://www.npmjs.com/package/vue-filepond)
-
+![npm](https://img.shields.io/npm/dt/vue-filepond)
 
 ---
 
