@@ -7,9 +7,15 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pqina/vue-filepond/blob/master/LICENSE)
 [![npm version](https://badge.fury.io/js/vue-filepond.svg)](https://www.npmjs.com/package/vue-filepond)
 
-FilePond is maintained by **[Rik Schennink](https://twitter.com/rikschennink/)**
 
-<img src="https://github.com/pqina/filepond-github-assets/blob/master/filepond-animation-01.gif?raw=true" width="370" alt=""/>
+---
+
+<img src="https://github.com/pqina/filepond-github-assets/blob/master/header.svg" alt="FilePond"/>
+
+[Buy me a Coffee](https://www.buymeacoffee.com/rikschennink/) / [Use FilePond with Pintura](https://pqina.nl/pintura/?ref=github-filepond) / [Dev updates on Twitter](https://twitter.com/rikschennink/)
+
+---
+
 
 ### Core Features
 
@@ -21,6 +27,8 @@ FilePond is maintained by **[Rik Schennink](https://twitter.com/rikschennink/)**
 - **Responsive**, automatically scales to available space, is functional on both **mobile and desktop devices**.
 
 [Learn more about FilePond](https://pqina.nl/filepond/)
+
+<img src="https://github.com/pqina/filepond-github-assets/blob/master/filepond-animation-01.gif?raw=true" width="370" alt=""/>
 
 ---
 
