@@ -77,8 +77,14 @@
       } // get property type ( can be either a String or the type defined within FilePond )
 
 
+      var valid_types = [String, getNativeConstructorFromType(_filepond.OptionTypes[prop])]; // labelFileProcessingError can also be Function
+
+      if (prop == 'labelFileProcessingError') {
+        valid_types.push(Function);
+      }
+
       props[prop] = {
-        type: [String, getNativeConstructorFromType(_filepond.OptionTypes[prop])],
+        type: valid_types,
         // set this default value so we know which props have been explicitely set by user on component
         default: "__unset__"
       };
