@@ -1,5 +1,9 @@
 # Changelog
 
+## 7.0.2
+
+- Fix build.
+
 ## 7.0.1
 
 - Fix issue with label also accepting function.
