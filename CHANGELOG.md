@@ -1,5 +1,9 @@
 # Changelog
 
+## 7.0.1
+
+- Fix issue with label also accepting function.
+
 ## 7.0.0
 
 - Vue 3 compatibility, please use v6 if you're on Vue 2. Thanks @honeymustard for the related PR.
