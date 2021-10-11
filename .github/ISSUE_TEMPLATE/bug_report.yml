@@ -1,0 +1,54 @@
+name: Bug report
+title: "[Bug] "
+description: Report an issue with Vue FilePond
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: checkboxes
+    attributes:
+      label: Is there an existing issue for this?
+      description: Please search to see if an issue already exists for the bug you encountered.
+      options:
+      - label: I have searched the existing issues
+        required: true
+  - type: checkboxes
+    attributes:
+      label: Have you updated Vue FilePond, FilePond, and all plugins?
+      description: Please update Vue FilePond, FilePond, and all plugins to the most recent version.
+      options:
+      - label: I have updated FilePond and its plugins
+        required: true
+  - type: textarea
+    attributes:
+      label: Describe the bug
+      description: A concise description of what the bug is.
+      placeholder: Bug description
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Provide clear steps to reproduce the bug.
+      placeholder: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Environment
+      description: |
+        examples:
+          - **Device**: Samsung Galaxy s20, iPhone 12 Mini, Macbook Pro (2020), etc.
+          - **OS**: Android 8, iOS 12, Windows 10, etc.
+          - **Browser**: Firefox 93, Chrome 94, etc.
+          - **Vue version**: React 17
+      value: |
+          - Device:
+          - OS:
+          - Broser:
+          - Vue version:
+      render: markdown
+    validations:
+      required: true
