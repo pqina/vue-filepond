@@ -100,7 +100,9 @@ export default {
     handleFilePondInit: function () {
       console.log("FilePond has initialized");
 
-      // FilePond instance methods are available on `this.$refs.pond`
+      // Many FilePond instance methods are available on `this.$refs.pond`
+      // These are not: "setOptions", "on", "off", "onOnce", "appendTo", "insertAfter", 
+      // "insertBefore", "isAttachedTo", "replaceElement", "restoreElement", "destroy"
     },
   },
   components: {
