@@ -1,8 +1,8 @@
 /*!
- * vue-filepond v7.0.2
+ * vue-filepond v7.0.3
  * A handy FilePond adapter component for Vue
  * 
- * Copyright (c) 2021 PQINA
+ * Copyright (c) 2022 PQINA
  * https://pqina.nl/filepond
  * 
  * Licensed under the MIT license.
@@ -27,6 +27,15 @@
     value: true
   });
   _exports.default = _exports.setOptions = void 0;
+
+  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+  function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
   // Methods not made available to the component
   var filteredComponentMethods = ["setOptions", "on", "off", "onOnce", "appendTo", "insertAfter", "insertBefore", "isAttachedTo", "replaceElement", "restoreElement", "destroy"]; // Test if is supported on this client
 
@@ -79,14 +88,14 @@
 
       var valid_types = [String, getNativeConstructorFromType(_filepond.OptionTypes[prop])]; // labelFileProcessingError can also be Function
 
-      if (prop == 'labelFileProcessingError') {
+      if (prop == "labelFileProcessingError") {
         valid_types.push(Function);
       }
 
       props[prop] = {
         type: valid_types,
         // set this default value so we know which props have been explicitely set by user on component
-        default: "__unset__"
+        default: undefined
       };
     } // create
 
@@ -95,11 +104,8 @@
       name: "FilePond",
       props: props,
       render: function render() {
-        return (0, _vue.h)("div", {
-          class: {
-            "filepond--wrapper": true
-          }
-        }, [(0, _vue.h)("input", {
+        // clean up undefined attributes
+        var attributes = Object.entries({
           id: this.id,
           name: this.name,
           type: "file",
@@ -108,7 +114,20 @@
           multiple: this.allowMultiple,
           accept: this.acceptedFileTypes,
           capture: this.captureMethod
-        })]);
+        }).reduce(function (attributes, _ref) {
+          var _ref2 = _slicedToArray(_ref, 2),
+              key = _ref2[0],
+              value = _ref2[1];
+
+          if (value !== undefined) attributes[key] = value;
+          return attributes;
+        }, {}); // create base element
+
+        return (0, _vue.h)("div", {
+          class: {
+            "filepond--wrapper": true
+          }
+        }, [(0, _vue.h)("input", attributes)]);
       },
       created: function created() {
         var _this = this;
@@ -143,7 +162,7 @@
         }, {});
         var passedProps = {};
         Object.keys(props).forEach(function (key) {
-          if (_this2[key] === "__unset__") return;
+          if (_this2[key] === undefined) return;
           passedProps[key] = _this2[key];
         }); // Create our pond
 

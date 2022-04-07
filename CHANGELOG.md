@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.0.3
+
+- Remove usage of `'__unset__'` to determine properties that haven't been set.
+- Clean up base FilePond element attributes so element class doesn't contain `true` string.
+
 ## 7.0.2
 
 - Fix build.

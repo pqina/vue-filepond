@@ -1,8 +1,8 @@
 /*!
- * vue-filepond v7.0.2
+ * vue-filepond v7.0.3
  * A handy FilePond adapter component for Vue
  * 
- * Copyright (c) 2021 PQINA
+ * Copyright (c) 2022 PQINA
  * https://pqina.nl/filepond
  * 
  * Licensed under the MIT license.
@@ -77,7 +77,7 @@ export default (...plugins) => {
     let valid_types = [String, getNativeConstructorFromType(OptionTypes[prop])];
 
     // labelFileProcessingError can also be Function
-    if (prop == 'labelFileProcessingError') {
+    if (prop == "labelFileProcessingError") {
       valid_types.push(Function);
     }
 
@@ -85,7 +85,7 @@ export default (...plugins) => {
       type: valid_types,
 
       // set this default value so we know which props have been explicitely set by user on component
-      default: "__unset__",
+      default: undefined,
     };
   }
 
@@ -95,6 +95,22 @@ export default (...plugins) => {
     props,
 
     render() {
+      // clean up undefined attributes
+      const attributes = Object.entries({
+        id: this.id,
+        name: this.name,
+        type: "file",
+        class: this.className,
+        required: this.required,
+        multiple: this.allowMultiple,
+        accept: this.acceptedFileTypes,
+        capture: this.captureMethod,
+      }).reduce((attributes, [key, value]) => {
+        if (value !== undefined) attributes[key] = value;
+        return attributes;
+      }, {});
+
+      // create base element
       return h(
         "div",
         {
@@ -102,18 +118,7 @@ export default (...plugins) => {
             "filepond--wrapper": true,
           },
         },
-        [
-          h("input", {
-            id: this.id,
-            name: this.name,
-            type: "file",
-            class: this.className,
-            required: this.required,
-            multiple: this.allowMultiple,
-            accept: this.acceptedFileTypes,
-            capture: this.captureMethod,
-          }),
-        ]
+        [h("input", attributes)]
       );
     },
 
@@ -144,7 +149,7 @@ export default (...plugins) => {
 
       const passedProps = {};
       Object.keys(props).forEach((key) => {
-        if (this[key] === "__unset__") return;
+        if (this[key] === undefined) return;
         passedProps[key] = this[key];
       });
 
