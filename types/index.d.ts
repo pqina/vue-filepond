@@ -29,4 +29,4 @@ declare const VueFilePond: (...plugins: any[]) => ComponentOptions<any, VueFileP
 
 export default VueFilePond;
 
-export const setOptions: (options: FilePondOptionProps) => {};
+export const setOptions: (options: FilePondOptionProps) => void;
