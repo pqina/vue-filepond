@@ -28,3 +28,5 @@ export class VueFilePondComponent extends VueConstructor<VueFilePondInstanceMeth
 declare const VueFilePond: (...plugins: any[]) => ComponentOptions<any, VueFilePondInstanceMethods, any, VueFilepondProps>
 
 export default VueFilePond;
+
+export const setOptions: (options: FilePondOptionProps) => void;
