@@ -90,6 +90,11 @@ const FilePond = vueFilePond(
   FilePondPluginFileValidateType,
   FilePondPluginImagePreview
 );
+// If you're using v6 of the plugin, you should replace vueFilePond with vueFilePond.default so it becomes
+// const FilePond = vueFilePond.default(
+//  FilePondPluginFileValidateType,
+//  FilePondPluginImagePreview
+// );
 
 export default {
   name: "app",
