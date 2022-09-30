@@ -134,6 +134,8 @@
 
         this.watchers = Object.keys(props).map(function (key) {
           return _this.$watch(key, function (next) {
+            // if pond is not initialized, don't update
+            if (!_this._pond) return;
             _this._pond[key] = next;
           });
         });
