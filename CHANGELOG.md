@@ -1,5 +1,9 @@
 # Changelog
 
+## 7.0.4
+
+- Merge #264
+
 ## 7.0.3
 
 - Remove usage of `'__unset__'` to determine properties that haven't been set.
