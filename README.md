@@ -15,7 +15,7 @@ Vue FilePond is a handy adapter component for [FilePond](https://github.com/pqin
 
 [<img src="https://github.com/pqina/filepond-github-assets/blob/master/header.svg" alt="FilePond"/>](https://www.buymeacoffee.com/rikschennink/)
 
-[Buy me a Coffee](https://www.buymeacoffee.com/rikschennink/) / [Use FilePond with Pintura](https://pqina.nl/pintura/?ref=github-filepond) / [Dev updates](https://rik.schenn.ink/)
+[Buy me a Coffee](https://www.buymeacoffee.com/rikschennink/) • [Use FilePond with Pintura](https://pqina.nl/pintura/?ref=github-filepond) • [Dev updates](https://rik.schenn.ink/)
 
 ---
 
