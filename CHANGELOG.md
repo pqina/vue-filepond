@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.0.0
+
+- Set package browser prop to `vue-filepond.esm.js` so works with Vite 8.
+
 ## 7.0.4
 
 - Merge #264

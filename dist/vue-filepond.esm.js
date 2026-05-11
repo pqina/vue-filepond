@@ -1,8 +1,8 @@
 /*!
- * vue-filepond v7.0.4
+ * vue-filepond v8.0.0
  * A handy FilePond adapter component for Vue
  * 
- * Copyright (c) 2023 PQINA
+ * Copyright (c) 2026 PQINA
  * https://pqina.nl/filepond
  * 
  * Licensed under the MIT license.
